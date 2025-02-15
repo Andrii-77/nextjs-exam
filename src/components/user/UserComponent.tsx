@@ -9,7 +9,7 @@ export const UserComponent = ({user}: UserComponentProps) => {
 
     return (
         <div>
-            <Link href={'/users/' + user.id.toString()}>{user.id} {user.firstName} {user.lastName}</Link>
+            <Link href={{pathname: '/users/' + user.id.toString(), query: {data: JSON.stringify(user)}}}>{user.id}). {user.firstName} {user.lastName}</Link>
         </div>
     );
 };

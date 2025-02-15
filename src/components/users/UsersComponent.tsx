@@ -5,6 +5,9 @@ import {IUser} from "@/models/IUser";
 
 export const UsersComponent = async () => {
 
+    // const {users}= await getAll<IUserResponseModel>('/users');
+    // console.log(users)
+
     const {users}= await getAll<IUserResponseModel>('/users');
     console.log(users)
 

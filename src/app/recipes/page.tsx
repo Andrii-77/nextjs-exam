@@ -1,7 +1,9 @@
+import {RecipesComponent} from "@/components/recipes/RecipesComponent";
+
 const RecipesPage = () => {
     return (
         <div>
-            Recipes Page content
+            <RecipesComponent/>
         </div>
     );
 };
