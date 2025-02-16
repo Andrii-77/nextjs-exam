@@ -45,9 +45,10 @@ export const getAllForPagination = async <T> (endpoint: string, page: string) =>
 // })
 //
 //
-// export const login = async ({username, password, expiresInMins}: LoginData): Promise<IUserWithTokens> => {
+// export const login = async ({username, password, expiresInMins: 30}: LoginData): Promise<IUserWithTokens> => {
 //
-//     const {data: userWithTokens} = await axiosInstance.post<IUserWithTokens>('/login', {username, password, expiresInMins});
+//     const {data: userWithTokens} = await axiosInstance.post<IUserWithTokens>('/login', {username, password,
+//     expiresInMins: 30});
 //     console.log(userWithTokens);
 //     localStorage.setItem('user', JSON.stringify(userWithTokens));
 //     return userWithTokens;

@@ -2,6 +2,9 @@ import {FC} from "react";
 import {Metadata} from "next";
 import {SearchParams} from "next/dist/server/request/search-params";
 import {IUser} from "@/models/IUser";
+import Link from "next/link";
+import {getAll} from "@/services/api.service";
+import {IRecipeResponseModel} from "@/models/IRecipeResponseModel";
 
 type Props = {
     params: Promise<{ id: string }>,
@@ -25,9 +28,14 @@ const UserPage: FC<Props> = async ({searchParams}) => {
         user = JSON.parse(data) as IUser;
         console.log(user)
     }
+
+    const {recipes}= await getAll<IRecipeResponseModel>(`/recipes`);
+    // const {recipes}= await getAll<IRecipeResponseModel>(`/recipes/search?q=${userId: user.id}`);
+
     return (
         <div>
-            {
+            <h2>Інформація про користувача:</h2>
+            <div>{
                 user && <div>
                     <div>First Name: {user.firstName}</div>
                     <div>Last Name: {user.lastName}</div>
@@ -40,7 +48,11 @@ const UserPage: FC<Props> = async ({searchParams}) => {
                     <div>Weight: {user.weight}</div>
                     <div>Eye Color: {user.eyeColor}</div>
                 </div>
-            }
+            }</div>
+            <h2>Рецепти цього користувача:</h2>
+            <div>
+                {/*<Link href={`/recipes/${recipe.userId}`}>{recipe.title}</Link>*/}
+            </div>
         </div>
     );
 };
