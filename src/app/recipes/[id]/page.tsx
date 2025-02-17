@@ -50,7 +50,7 @@ const RecipePage:FC<Props> = async ({searchParams}) => {
             }
             <h2>Користувач, який створив цей рецепт:</h2>
             <div>
-                {recipe && <div><Link href={`/users/${recipe.userId}`}>{recipe.userId}). {user.firstName} {user.lastName}</Link></div>}
+                {recipe && <div><Link href={{pathname: `/users/${recipe.userId}`, query: {data: JSON.stringify(user)}}}>{recipe.userId}). {user.firstName} {user.lastName}</Link></div>}
             </div>
         </div>
     );

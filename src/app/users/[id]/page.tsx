@@ -29,7 +29,7 @@ const UserPage: FC<Props> = async ({searchParams}) => {
         console.log(user)
     }
 
-    const {recipes}= await getAll<IRecipeResponseModel>(`/recipes`);
+    // const {recipes}= await getAll<IRecipeResponseModel>(`/recipes`);
     // const {recipes}= await getAll<IRecipeResponseModel>(`/recipes/search?q=${userId: user.id}`);
 
     return (
