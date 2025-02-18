@@ -52,6 +52,7 @@ const UserPage: FC<Props> = async ({searchParams}) => {
             <h2>Рецепти цього користувача:</h2>
             <div>
                 {/*<Link href={`/recipes/${recipe.userId}`}>{recipe.title}</Link>*/}
+                // Не знаю як зробити це посилання.
             </div>
         </div>
     );
