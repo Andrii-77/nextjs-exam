@@ -4,7 +4,6 @@ import {getAllForPagination} from "@/services/api.service";
 import {IUserResponseModel} from "@/models/IUserResponseModel";
 import {UserComponent} from "@/components/user/UserComponent";
 import {IUser} from "@/models/IUser";
-import {PaginationComponent} from "@/components/pagination/PaginationComponent";
 
 export const UsersComponent = async () => {
 
@@ -13,34 +12,38 @@ export const UsersComponent = async () => {
 
     // const {users}= await getAllForPagination<IUserResponseModel & { users: IUser[] }>('/users?skip=', currentPage);
 
+
     const {users}= await getAllForPagination<IUserResponseModel & { users: IUser[] }>('/users?skip=', "1");
     console.log(users)
-    // треба подумати як перекинути currentPage замість 1
+    // треба подумати як перекинути currentPage або page замість 1
 
     return (
 
         <div>
-            <PaginationComponent/>
             <div>{users.map((user: IUser) => <UserComponent key={user.id} user={user}/>)}</div>
         </div>
     );
 
 };
 
+    // let page = "1";
+    // let currentPage = Number(page || '1');
+    // const perPage = 30;
+    // const total = 208
+    // console.log(currentPage);
+    //
+    // const [searchParams] = useSearchParams({page: "1"});
+    // const [users, setUsers] = useState<IUser[]>([]);
+    //
+    // useEffect(() => {
+    //     const currentPage = searchParams.get('page') || '1';
+    //     getAllForPagination<IUserResponseModel & { users: IUser[] }>('/users?skip=', currentPage)
+    //         .then(({users}) => {
+    //             setUsers(users);
+    //         });
+    //     console.log(users)
+    // }, [searchParams]);
 
-
-
-
-
-
-
-
-// const page = "1";
-// let currentPage = Number(page || '1');
-// const perPage = 30;
-// const total = 208
-// console.log(currentPage)
-//
 // const {users}= await getAllForPagination<IUserResponseModel & { users: IUser[] }>('/users?skip=', currentPage);
 // console.log(users)
 // // треба подумати як перекинути currentPage замість 3
@@ -67,25 +70,27 @@ export const UsersComponent = async () => {
 // const perPage = 30;
 // const total = 208
 //
-// return (
+//     return (
 //
-//     <div>
 //         <div>
-//             <button onClick={() => {
-//                 if(currentPage > 1) {
-//                     page = (--currentPage).toString();
+//             <div>
+//                 <button onClick={() => {
+//                     if (currentPage > 1) {
+//                         page = (--currentPage).toString();
+//                         console.log(currentPage)
+//                     }
+//                 }}>prev
+//                 </button>
+//                 <button onClick={() => {
+//                     if (currentPage * perPage < total)
+//                         page = (++currentPage).toString();
 //                     console.log(currentPage)
-//                 }
-//             }}>prev</button>
-//             <button onClick={() => {
-//                 if(currentPage * perPage < total)
-//                     page = (++currentPage).toString();
-//                 console.log(currentPage)
-//             }}>next</button>
+//                 }}>next
+//                 </button>
+//             </div>
+//             {/*<PaginationComponent/>*/}
+//             <div>{users.map((user: IUser) => <UserComponent key={user.id} user={user}/>)}</div>
 //         </div>
-//         {/*<PaginationComponent/>*/}
-//         <div>{users.map((user: IUser) => <UserComponent key={user.id} user={user}/>)}</div>
-//     </div>
-// );
-
+//     );
+// };
 

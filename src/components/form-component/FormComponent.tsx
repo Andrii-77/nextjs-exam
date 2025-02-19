@@ -26,15 +26,15 @@ export const FormComponent = () => {
             <form onSubmit={handleSubmit(customHandler)}>
             {/*<form action={saveAuth}>*/}
                 <div><label>
-                    <input type="text" {...register('username')}/>
+                    <input type="text" {...register('username')} placeholder={'Username'}/>
                     {errors.username && <div>{errors.username.message}</div>}
                 </label></div>
 
                 <div><label>
-                    <input type="text" {...register('password')}/>
+                    <input type="text" {...register('password')} placeholder={'Password'}/>
                     {errors.password && <div>{errors.password.message}</div>}
                 </label></div>
-                <button disabled={!isValid}>send</button>
+                <button disabled={!isValid}>Авторизуватись</button>
             </form>
         </div>
     );

@@ -13,9 +13,9 @@ export const Menu = () => {
                 <li>
                     <Link href={'/recipes'}>Recipes</Link>
                 </li>
-                {/*<li>*/}
-                {/*    <Link href={'/'}>Search</Link>*/}
-                {/*</li>*/}
+                <li>
+                    <Link href={'/search'}>Search</Link>
+                </li>
             </ul>
             <br/>
             <hr/>
